@@ -1,20 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+//This is an example code for Navigator//
+import React, { Component } from 'react';
+//import react in our code.
+ 
+//Import react-navigation
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator} from 'react-navigation-stack';
+ 
+import HomePage from './HomePage';
+import ProfilePage from './ProfilePage';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const App = createStackNavigator(
+  {
+    HomePage: { screen: HomePage },
+    ProfilePage: { screen: ProfilePage },
   },
-});
+  {
+    initialRouteName: 'HomePage',
+  }
+ );
+ export default createAppContainer(App)
